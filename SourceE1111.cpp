@@ -5,7 +5,7 @@ vector<string> split(const string& s, const string& w);
 int main()
 {
     string poem("Let's go on a trip!\n\nLet's pack our bag!\n\nTake your trainers,\n\nTake your shoes.\n\nLet's go!");
-    string whitespace{"?,.:;!"};
+    string whitespace{"?,.:;!'"};
     cout << poem << "\n\n";
     vector<string>pm = split(poem, whitespace);
     for(string strk: pm)
@@ -19,7 +19,9 @@ vector<string>split(const string& s, const string& w)
 {
     vector<string> vs;
     stringstream ss(s);
-    string str;
+    string temp;
+    bool flag = false;
+    //string str;
     for(string st; ss >> st;)
     {
         for(char ch: st)
@@ -27,17 +29,25 @@ vector<string>split(const string& s, const string& w)
             for(char ch1: w)
             {
                 if(ch == ch1 )
-                    str += ' ';
-                else
-                    str += ch;
+                {
+                   flag = true;
+                   break;
+                }
             }
+            if(!flag)
+            {
+                temp += ch;
+                continue;
+            }
+            flag = false;
         }
-        str += ' ';
+        vs.push_back(temp);
+        temp = "";
     }
-    stringstream ss2(str);
+  /*   stringstream ss2(str);
     for(string st2; ss2 >> st2;)
     {
         vs.push_back(st2);
-    }
+    } */
     return vs;
 }
