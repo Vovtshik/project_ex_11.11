@@ -4,7 +4,14 @@ vector<string> split(const string& s, const string& w);
 
 int main()
 {
-
+    string poem("Let's go on a trip!\n\nLet's pack our bag!\n\nTake your trainers,\n\nTake your shoes.\n\nLet's go!");
+    string whitespace{"?,.:;!"};
+    cout << poem << "\n\n";
+    vector<string>pm = split(poem, whitespace);
+    for(string strk: pm)
+    { 
+        cout << strk << '\n';
+    }
     return 0;
 }
 
