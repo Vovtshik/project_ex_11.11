@@ -21,7 +21,6 @@ vector<string>split(const string& s, const string& w)
     stringstream ss(s);
     string temp;
     bool flag = false;
-    //string str;
     for(string st; ss >> st;)
     {
         for(char ch: st)
@@ -44,10 +43,5 @@ vector<string>split(const string& s, const string& w)
         vs.push_back(temp);
         temp = "";
     }
-  /*   stringstream ss2(str);
-    for(string st2; ss2 >> st2;)
-    {
-        vs.push_back(st2);
-    } */
     return vs;
 }
